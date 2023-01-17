@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Core.h"
+#include "Event/Event.h"
 
 namespace Algernon {
 	class ALGERNON_API Application

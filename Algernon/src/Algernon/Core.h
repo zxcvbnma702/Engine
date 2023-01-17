@@ -9,3 +9,5 @@
 #else
 #error Algernon only support Windows!
 #endif // AL_PLATFORM_WINDOWS
+
+#define BIT(x) (1 << x)
