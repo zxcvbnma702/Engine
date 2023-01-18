@@ -18,6 +18,9 @@ project "Algernon"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "Alpch.h"
+	pchsource "Algernon/src/Alpch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",

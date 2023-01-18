@@ -1,3 +1,4 @@
+#include "Alpch.h"
 #include "Log.h"
 
 namespace Algernon {

@@ -1,3 +1,4 @@
+#include "Alpch.h"
 #include "Application.h"
 
 namespace Algernon {
