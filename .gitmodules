@@ -1,3 +1,6 @@
 [submodule "Algernon/vendor/spdlog"]
 	path = Algernon/vendor/spdlog
 	url = git@github.com:gabime/spdlog.git
+[submodule "Algernon/vendor/GLFW"]
+	path = Algernon/vendor/GLFW
+	url = git@github.com:TheCherno/glfw.git
