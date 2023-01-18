@@ -7,6 +7,12 @@
     <Filter Include="Algernon\Event">
       <UniqueIdentifier>{ACCB4EB4-9899-42BA-812D-B3E06D9A1E1F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Window">
+      <UniqueIdentifier>{D1E05B2F-3D6C-C9F3-467D-4CE8B28725F4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Algernon.h" />
@@ -34,7 +40,13 @@
     <ClInclude Include="src\Algernon\Log.h">
       <Filter>Algernon</Filter>
     </ClInclude>
+    <ClInclude Include="src\Algernon\Window.h">
+      <Filter>Algernon</Filter>
+    </ClInclude>
     <ClInclude Include="src\Alpch.h" />
+    <ClInclude Include="src\Platform\Window\WindowsWindow.h">
+      <Filter>Platform\Window</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Algernon\Application.cpp">
@@ -44,5 +56,8 @@
       <Filter>Algernon</Filter>
     </ClCompile>
     <ClCompile Include="src\Alpch.cpp" />
+    <ClCompile Include="src\Platform\Window\WindowsWindow.cpp">
+      <Filter>Platform\Window</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
