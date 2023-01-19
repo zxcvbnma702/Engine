@@ -37,6 +37,12 @@
     <ClInclude Include="src\Algernon\Event\MouseEvent.h">
       <Filter>Algernon\Event</Filter>
     </ClInclude>
+    <ClInclude Include="src\Algernon\Layer.h">
+      <Filter>Algernon</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Algernon\LayerStack.h">
+      <Filter>Algernon</Filter>
+    </ClInclude>
     <ClInclude Include="src\Algernon\Log.h">
       <Filter>Algernon</Filter>
     </ClInclude>
@@ -50,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Algernon\Application.cpp">
+      <Filter>Algernon</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Algernon\Layer.cpp">
+      <Filter>Algernon</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Algernon\LayerStack.cpp">
       <Filter>Algernon</Filter>
     </ClCompile>
     <ClCompile Include="src\Algernon\Log.cpp">

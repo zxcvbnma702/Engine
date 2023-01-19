@@ -84,6 +84,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -110,6 +111,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -137,6 +139,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -160,6 +163,8 @@
     <ClInclude Include="src\Algernon\Event\Event.h" />
     <ClInclude Include="src\Algernon\Event\KeyEvent.h" />
     <ClInclude Include="src\Algernon\Event\MouseEvent.h" />
+    <ClInclude Include="src\Algernon\Layer.h" />
+    <ClInclude Include="src\Algernon\LayerStack.h" />
     <ClInclude Include="src\Algernon\Log.h" />
     <ClInclude Include="src\Algernon\Window.h" />
     <ClInclude Include="src\Alpch.h" />
@@ -167,6 +172,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Algernon\Application.cpp" />
+    <ClCompile Include="src\Algernon\Layer.cpp" />
+    <ClCompile Include="src\Algernon\LayerStack.cpp" />
     <ClCompile Include="src\Algernon\Log.cpp" />
     <ClCompile Include="src\Alpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

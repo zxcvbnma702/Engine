@@ -4,6 +4,7 @@
 #include "Event/Event.h"
 #include "Window.h"
 #include "Event/ApplicationEvent.h"
+#include "LayerStack.h"
 
 namespace Algernon {
 	class ALGERNON_API Application
@@ -15,6 +16,9 @@ namespace Algernon {
 		void Run();
 
 		void OnEvent(Event& e);
+
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* layer);
 	private:
 
 		// Window close callback function
@@ -22,6 +26,7 @@ namespace Algernon {
 
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
+		LayerStack m_LayerStack;
 	};
 
 	//To be defined in Client
