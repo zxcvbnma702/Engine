@@ -2,7 +2,7 @@
 #include "Application.h"
 
 #include "Algernon/Event/ApplicationEvent.h"
-#include <GLFW/glfw3.h>
+#include <glad/glad.h>
 
 namespace Algernon {
 	// About std::function and std::bind, see this linking

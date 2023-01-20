@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Algernon/vendor/GLFW/include"
+IncludeDir["Glad"] = "Algernon/vendor/Glad/include"
 
 include "Algernon/vendor/GLFW"
+include "Algernon/vendor/Glad"
 
 project "Algernon"
 	location "Algernon"
@@ -37,12 +39,14 @@ project "Algernon"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links 
 	{ 
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -54,7 +58,8 @@ project "Algernon"
 		defines
 		{
 			"AL_PLATFORM_WINDOWS",
-			"AL_BUILD_DLL"
+			"AL_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
