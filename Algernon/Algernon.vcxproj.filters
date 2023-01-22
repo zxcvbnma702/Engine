@@ -7,6 +7,9 @@
     <Filter Include="Algernon\Event">
       <UniqueIdentifier>{ACCB4EB4-9899-42BA-812D-B3E06D9A1E1F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Algernon\ImGui">
+      <UniqueIdentifier>{85BF91B4-718D-85BA-5A21-F6E0468E611F}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
@@ -37,6 +40,9 @@
     <ClInclude Include="src\Algernon\Event\MouseEvent.h">
       <Filter>Algernon\Event</Filter>
     </ClInclude>
+    <ClInclude Include="src\Algernon\ImGui\ImGuiLayer.h">
+      <Filter>Algernon\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\Algernon\Layer.h">
       <Filter>Algernon</Filter>
     </ClInclude>
@@ -53,10 +59,14 @@
     <ClInclude Include="src\Platform\Window\WindowsWindow.h">
       <Filter>Platform\Window</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Algernon\Application.cpp">
       <Filter>Algernon</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Algernon\ImGui\ImGuiLayer.cpp">
+      <Filter>Algernon\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Algernon\Layer.cpp">
       <Filter>Algernon</Filter>
@@ -71,5 +81,6 @@
     <ClCompile Include="src\Platform\Window\WindowsWindow.cpp">
       <Filter>Platform\Window</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
   </ItemGroup>
 </Project>
