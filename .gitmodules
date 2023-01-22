@@ -4,3 +4,6 @@
 [submodule "Algernon/vendor/GLFW"]
 	path = Algernon/vendor/GLFW
 	url = git@github.com:TheCherno/glfw.git
+[submodule "Algernon/vendor/imgui"]
+	path = Algernon/vendor/imgui
+	url = git@github.com:TheCherno/imgui.git
