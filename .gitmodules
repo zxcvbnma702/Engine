@@ -7,3 +7,6 @@
 [submodule "Algernon/vendor/imgui"]
 	path = Algernon/vendor/imgui
 	url = git@github.com:TheCherno/imgui.git
+[submodule "Algernon/vendor/glm"]
+	path = Algernon/vendor/glm
+	url = git@gitee.com:infinityyf/glm.git
