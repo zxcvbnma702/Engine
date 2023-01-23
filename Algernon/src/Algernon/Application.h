@@ -5,6 +5,7 @@
 #include "Window.h"
 #include "Event/ApplicationEvent.h"
 #include "LayerStack.h"
+#include "Algernon/ImGui/ImGuiLayer.h"
 
 namespace Algernon {
 	class ALGERNON_API Application
@@ -30,6 +31,7 @@ namespace Algernon {
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 

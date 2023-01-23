@@ -96,9 +96,6 @@
     <ClInclude Include="src\Alpch.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h">
-      <Filter>src\Platform\OpenGL</Filter>
-    </ClInclude>
     <ClInclude Include="src\Platform\Window\WindowsInput.h">
       <Filter>src\Platform\Window</Filter>
     </ClInclude>
@@ -1370,14 +1367,12 @@
     <ClCompile Include="src\Alpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
-      <Filter>src\Platform\OpenGL</Filter>
-    </ClCompile>
     <ClCompile Include="src\Platform\Window\WindowsInput.cpp">
       <Filter>src\Platform\Window</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Window\WindowsWindow.cpp">
       <Filter>src\Platform\Window</Filter>
     </ClCompile>
+    <ClCompile Include="src\Algernon\ImGui\ImGuiBuild.cpp" />
   </ItemGroup>
 </Project>

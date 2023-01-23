@@ -3,7 +3,7 @@
 class SandBox : public Algernon::Application {
 public:
 	SandBox() {
-		PushOverlay(new Algernon::ImGuiLayer());
+		
 	}
 	~SandBox() {
 	}
