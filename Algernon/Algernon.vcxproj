@@ -161,6 +161,7 @@
     <ClInclude Include="src\Algernon\Event\KeyEvent.h" />
     <ClInclude Include="src\Algernon\Event\MouseEvent.h" />
     <ClInclude Include="src\Algernon\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Algernon\Input.h" />
     <ClInclude Include="src\Algernon\Layer.h" />
     <ClInclude Include="src\Algernon\LayerStack.h" />
     <ClInclude Include="src\Algernon\Log.h" />

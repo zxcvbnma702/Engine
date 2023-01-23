@@ -20,6 +20,7 @@ namespace Algernon {
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* layer);
 
+		//Return abstract window, platform-independent
 		inline Window& GetWindow() { return *m_Window; }
 
 		inline static Application& Get() { return *s_Instance; }

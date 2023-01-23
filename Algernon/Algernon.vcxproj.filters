@@ -65,6 +65,7 @@
     <ClInclude Include="src\Platform\Window\WindowsWindow.h">
       <Filter>Platform\Window</Filter>
     </ClInclude>
+    <ClInclude Include="src\Algernon\Input.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Algernon\Application.cpp">

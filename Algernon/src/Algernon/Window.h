@@ -17,7 +17,7 @@ namespace Algernon
 			:Title(title), Width(width), Height(height) {}
 	};
 
-	// Interface
+	// Interface abstract class
 	class ALGERNON_API Window
 	{
 	public:
@@ -35,6 +35,9 @@ namespace Algernon
 		virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
 		virtual void SetVSync(bool enabled) = 0;
 		virtual bool IsVSync() const = 0;
+
+		//Return specific window
+		virtual void* GetNativeWindow() const = 0;
 
 		//Generic interface for creating windows
 		static Window* Create(const WindowProps& props = WindowProps());
