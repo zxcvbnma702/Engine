@@ -16,6 +16,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Algernon/vendor/GLFW/include"
 IncludeDir["Glad"] = "Algernon/vendor/Glad/include"
 IncludeDir["ImGui"] = "Algernon/vendor/imgui"
+IncludeDir["glm"] = "Algernon/vendor/glm"
 
 group "Dependencies"
 	include "Algernon/vendor/GLFW"
@@ -39,7 +40,9 @@ project "Algernon"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl",
 	}
 
 	includedirs
@@ -48,7 +51,8 @@ project "Algernon"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links 
@@ -108,7 +112,8 @@ project "Sandbox"
 	includedirs
 	{
 		"Algernon/vendor/spdlog/include",
-		"Algernon/src"
+		"Algernon/src",
+		"%{IncludeDir.glm}"
 	}
 
 	links
