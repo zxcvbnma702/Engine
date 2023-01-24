@@ -1,13 +1,17 @@
 #pragma once
 
 #ifdef AL_PLATFORM_WINDOWS
-#ifdef AL_BUILD_DLL
-#define ALGERNON_API __declspec(dllexport)
+#if AL_DYNAMIC_LINK
+	#ifdef AL_BUILD_DLL
+         #define ALGERNON_API __declspec(dllexport)
+	#else
+	     #define ALGERNON_API __declspec(dllimport)
+	#endif
 #else
-#define ALGERNON_API __declspec(dllimport)
+    #define ALGERNON_API
 #endif
 #else
-#error Algernon only support Windows!
+     #error Algernon only support Windows!
 #endif // AL_PLATFORM_WINDOWS
 
 #ifdef AL_DEBUG

@@ -27,15 +27,21 @@ group ""
 
 project "Algernon"
 	location "Algernon"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
-	staticruntime "off"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
 	pchheader "Alpch.h"
 	pchsource "Algernon/src/Alpch.cpp"
+
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS"
+	}
 
 	files
 	{
@@ -64,7 +70,6 @@ project "Algernon"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
 		systemversion "latest"
 
 		defines
@@ -74,31 +79,29 @@ project "Algernon"
 			"GLFW_INCLUDE_NONE"
 		}
 
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
-		}
+		
 
 	filter "configurations:Debug"
 		defines "AL_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "AL_RELEASE"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "AL_DIST"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
-	staticruntime "off"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -113,6 +116,7 @@ project "Sandbox"
 	{
 		"Algernon/vendor/spdlog/include",
 		"Algernon/src",
+		"Algernon/vendor",
 		"%{IncludeDir.glm}"
 	}
 
@@ -122,7 +126,6 @@ project "Sandbox"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
 		systemversion "latest"
 
 		defines
@@ -133,14 +136,14 @@ project "Sandbox"
 	filter "configurations:Debug"
 		defines "AL_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "AL_RELEASE"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "AL_DIST"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
