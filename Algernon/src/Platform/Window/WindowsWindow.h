@@ -2,6 +2,7 @@
 
 #include "Algernon/Window.h"
 
+#include "Algernon/Renderer/GraphicsContext.h"
 #include <GLFW/glfw3.h>
 
 namespace Algernon {
@@ -10,6 +11,7 @@ namespace Algernon {
 	private:
 		// Windows subject
 		GLFWwindow* m_Window;
+		GraphicsContext* m_Context;
 
 		struct WindowData
 		{
@@ -22,7 +24,7 @@ namespace Algernon {
 
 		WindowData m_Data;
 	private:
-		//Use glfw to init a windoe
+		//Use glfw to init a window
 		virtual void Init(const WindowProps& props);
 		virtual void ShutDown();
 
