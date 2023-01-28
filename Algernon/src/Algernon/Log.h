@@ -25,11 +25,11 @@ namespace Algernon {
 #define AL_CORE_INFO(...)     ::Algernon::Log::GetCoreLogger()->info(__VA_ARGS__)
 #define AL_CORE_WARN(...)     ::Algernon::Log::GetCoreLogger()->warn(__VA_ARGS__)
 #define AL_CORE_ERROR(...)    ::Algernon::Log::GetCoreLogger()->error(__VA_ARGS__)
-#define AL_CORE_FATAL(...)    ::Algernon::Log::GetCoreLogger()->fatal(__VA_ARGS__)
+#define AL_CORE_FATAL(...)    ::Algernon::Log::GetCoreLogger()->critical(__VA_ARGS__)
 
 // Client log macros
 #define AL_TRACE(...)	      ::Algernon::Log::GetClientLogger()->trace(__VA_ARGS__)
 #define AL_INFO(...)	      ::Algernon::Log::GetClientLogger()->info(__VA_ARGS__)
 #define AL_WARN(...)	      ::Algernon::Log::GetClientLogger()->warn(__VA_ARGS__)
 #define AL_ERROR(...)	      ::Algernon::Log::GetClientLogger()->error(__VA_ARGS__)
-#define AL_FATAL(...)	      ::Algernon::Log::GetClientLogger()->fatal(__VA_ARGS__)
+#define AL_FATAL(...)	      ::Algernon::Log::GetClientLogger()->critical(__VA_ARGS__)

@@ -159,6 +159,7 @@
     <ClInclude Include="src\Algernon\Log.h" />
     <ClInclude Include="src\Algernon\MouseButtonCodes.h" />
     <ClInclude Include="src\Algernon\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Algernon\Renderer\Shader.h" />
     <ClInclude Include="src\Algernon\Window.h" />
     <ClInclude Include="src\Alpch.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
@@ -587,6 +588,7 @@
     <ClCompile Include="src\Algernon\Layer.cpp" />
     <ClCompile Include="src\Algernon\LayerStack.cpp" />
     <ClCompile Include="src\Algernon\Log.cpp" />
+    <ClCompile Include="src\Algernon\Renderer\Shader.cpp" />
     <ClCompile Include="src\Alpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

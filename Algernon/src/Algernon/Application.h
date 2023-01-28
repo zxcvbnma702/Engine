@@ -6,6 +6,7 @@
 #include "Event/ApplicationEvent.h"
 #include "LayerStack.h"
 #include "Algernon/ImGui/ImGuiLayer.h"
+#include "Algernon/Renderer/Shader.h"
 
 namespace Algernon {
 	class ALGERNON_API Application
@@ -35,7 +36,7 @@ namespace Algernon {
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
-
+		std::unique_ptr<Shader> m_Shader;
 	private:
 		static Application* s_Instance;
 	};
