@@ -158,10 +158,13 @@
     <ClInclude Include="src\Algernon\LayerStack.h" />
     <ClInclude Include="src\Algernon\Log.h" />
     <ClInclude Include="src\Algernon\MouseButtonCodes.h" />
+    <ClInclude Include="src\Algernon\Renderer\Buffer.h" />
     <ClInclude Include="src\Algernon\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Algernon\Renderer\Renderer.h" />
     <ClInclude Include="src\Algernon\Renderer\Shader.h" />
     <ClInclude Include="src\Algernon\Window.h" />
     <ClInclude Include="src\Alpch.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\Window\WindowsInput.h" />
     <ClInclude Include="src\Platform\Window\WindowsWindow.h" />
@@ -588,10 +591,13 @@
     <ClCompile Include="src\Algernon\Layer.cpp" />
     <ClCompile Include="src\Algernon\LayerStack.cpp" />
     <ClCompile Include="src\Algernon\Log.cpp" />
+    <ClCompile Include="src\Algernon\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Algernon\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Algernon\Renderer\Shader.cpp" />
     <ClCompile Include="src\Alpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Window\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Window\WindowsWindow.cpp" />
