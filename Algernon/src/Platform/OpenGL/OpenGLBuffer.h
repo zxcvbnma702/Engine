@@ -20,6 +20,9 @@ namespace Algernon
 		BufferLayout m_Layout;
 	};
 
+	/// <What is IndexBuffer>
+	/// https://www.cnblogs.com/leiGameDesigner/p/8379615.html
+	/// </What is IndexBuffer>
 	class OpenGLIndexBuffer : public IndexBuffer
 	{
 	public:

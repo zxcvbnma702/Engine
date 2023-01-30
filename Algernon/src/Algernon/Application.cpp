@@ -4,6 +4,8 @@
 #include "Algernon/Event/ApplicationEvent.h"
 #include <glad/glad.h>
 
+#include "Input.h"
+
 namespace Algernon {
 	// About std::function and std::bind, see this linking
 	//(https://stackoverflow.com/questions/37636373/how-stdbind-works-with-member-functions)
@@ -11,41 +13,21 @@ namespace Algernon {
 
 	Application* Application::s_Instance = nullptr;
 
-	static GLenum ShaderDataTypeToOpenGLBaseType(ShaderDataType type)
-	{
-		switch (type)
-		{
-			case Algernon::ShaderDataType::Float:    return GL_FLOAT;
-			case Algernon::ShaderDataType::Float2:   return GL_FLOAT;
-			case Algernon::ShaderDataType::Float3:   return GL_FLOAT;
-			case Algernon::ShaderDataType::Float4:   return GL_FLOAT;
-			case Algernon::ShaderDataType::Mat3:     return GL_FLOAT;
-			case Algernon::ShaderDataType::Mat4:     return GL_FLOAT;
-			case Algernon::ShaderDataType::Int:      return GL_INT;
-			case Algernon::ShaderDataType::Int2:     return GL_INT;
-			case Algernon::ShaderDataType::Int3:     return GL_INT;
-			case Algernon::ShaderDataType::Int4:     return GL_INT;
-			case Algernon::ShaderDataType::Bool:     return GL_BOOL;
-		}
-
-		AL_CORE_ASSERT(false, "Unknown ShaderDataType!");
-		return 0;
-	}
-
-
 	Application::Application()
 	{
 		AL_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
 
+		// Window ///////////////////////////////////////////////////////////////////////////////
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
+		//Layer /////////////////////////////////////////////////////////////////////////////////
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
 
-		glGenVertexArrays(1, &m_VertexArray);
-		glBindVertexArray(m_VertexArray);
+		//Renderer //////////////////////////////////////////////////////////////////////////////
+		m_VertexArray.reset(VertexArray::Create());
 
 		float vertices[3 * 7] = {
 			-0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
@@ -53,34 +35,28 @@ namespace Algernon {
 			 0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
 
-		m_VertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
+		//Create VertexBuffer
+		std::shared_ptr<VertexBuffer> vertexBuffer;
+		vertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
 
-		{
-			BufferLayout layout = {
-				{ ShaderDataType::Float3, "a_Position" },
-				{ ShaderDataType::Float4, "a_Color" }
-			};
+		//Set VertexBuffer layout
+		BufferLayout layout = {
+			{ ShaderDataType::Float3, "a_Position" },
+			{ ShaderDataType::Float4, "a_Color" }
+		};
+		vertexBuffer->SetLayout(layout);
 
-			m_VertexBuffer->SetLayout(layout);
-		}
-
-		uint32_t index = 0;
-		const auto& layout = m_VertexBuffer->GetLayout();
-		for (const auto& element : layout)
-		{
-			glEnableVertexAttribArray(index);
-			glVertexAttribPointer(index,
-				element.GetComponentCount(),
-				ShaderDataTypeToOpenGLBaseType(element.Type),
-				element.Normalized ? GL_TRUE : GL_FALSE,
-				layout.GetStride(),
-				(const void*)element.Offset);
-			index++;
-		}
+		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		unsigned int indices[3] = { 0, 1, 2 };
-		m_IndexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices)/sizeof(uint32_t)));
 
+		//Create IndexBuffer
+		std::shared_ptr<IndexBuffer> indexBuffer;
+		indexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices)/sizeof(uint32_t)));
+
+		m_VertexArray->SetIndexBuffer(indexBuffer);
+
+		//Shader by glsl
 		std::string vertexSrc = R"(
 			#version 330 core
 			
@@ -129,8 +105,8 @@ namespace Algernon {
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			m_Shader->Bind();
-			glBindVertexArray(m_VertexArray);
-			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
+			m_VertexArray->Bind();
+			glDrawElements(GL_TRIANGLES, m_VertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
 
 			//Render form bottom to top
 			for (Layer* layer : m_LayerStack)
