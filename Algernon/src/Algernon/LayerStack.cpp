@@ -17,8 +17,8 @@ namespace Algernon {
 	void LayerStack::PushLayer(Layer* layer)
 	{
 		m_Layers.emplace(m_Layers.begin() + m_LayerInsertIndex, layer);
-		layer->OnAttach();
 		m_LayerInsertIndex++;
+		layer->OnAttach();
 	}
 
 	void LayerStack::PushOverlay(Layer* overlay)
@@ -32,9 +32,9 @@ namespace Algernon {
 		auto it = std::find(m_Layers.begin(), m_Layers.end(), layer);
 		if (it != m_Layers.end())
 		{
+			layer->OnDetach();
 			m_Layers.erase(it);
 			m_LayerInsertIndex--;
-			layer->OnDetach();
 		}
 	}
 
@@ -43,8 +43,8 @@ namespace Algernon {
 		auto it = std::find(m_Layers.begin(), m_Layers.end(), overlay);
 		if (it != m_Layers.end())
 		{
-			m_Layers.erase(it);
 			overlay->OnDetach();
+			m_Layers.erase(it);
 		}
 			
 	}

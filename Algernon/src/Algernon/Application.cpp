@@ -2,6 +2,7 @@
 #include "Application.h"
 
 #include "Algernon/Event/ApplicationEvent.h"
+#include "Algernon/Renderer/Renderer.h"
 #include <glad/glad.h>
 
 #include "Input.h"
@@ -101,12 +102,17 @@ namespace Algernon {
 	{
 		while (m_Running)
 		{
-			glClearColor(1, 0, 1, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
+			RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
+			RenderCommand::Clear();
+
+			Renderer::BeginScene();
 
 			m_Shader->Bind();
 			m_VertexArray->Bind();
-			glDrawElements(GL_TRIANGLES, m_VertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
+
+			Renderer::Submit(m_VertexArray);
+			
+			Renderer::EndScene();
 
 			//Render form bottom to top
 			for (Layer* layer : m_LayerStack)
