@@ -9,6 +9,7 @@
 #include "Algernon/Renderer/Shader.h"
 #include "Algernon/Renderer/Buffer.h"
 #include "Algernon/Renderer/VertexArray.h"
+#include "Algernon/Renderer/OrthographicCamera.h"
 
 namespace Algernon {
 	class ALGERNON_API Application
@@ -40,6 +41,8 @@ namespace Algernon {
 
 		std::shared_ptr<Shader> m_Shader;
 		std::shared_ptr<VertexArray> m_VertexArray;
+
+		OrthographicCamera m_Camera;
 
 	private:
 		static Application* s_Instance;

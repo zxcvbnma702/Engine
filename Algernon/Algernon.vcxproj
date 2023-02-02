@@ -143,6 +143,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Algernon\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\Algernon.h" />
     <ClInclude Include="src\Algernon\Application.h" />
     <ClInclude Include="src\Algernon\Core.h" />
@@ -590,6 +591,7 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Algernon\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Algernon\Application.cpp" />
     <ClCompile Include="src\Algernon\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Algernon\ImGui\ImGuiLayer.cpp" />
