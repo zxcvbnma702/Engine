@@ -6,10 +6,7 @@
 #include "Event/ApplicationEvent.h"
 #include "LayerStack.h"
 #include "Algernon/ImGui/ImGuiLayer.h"
-#include "Algernon/Renderer/Shader.h"
-#include "Algernon/Renderer/Buffer.h"
-#include "Algernon/Renderer/VertexArray.h"
-#include "Algernon/Renderer/OrthographicCamera.h"
+#include "Algernon/Core/Timestep.h"
 
 namespace Algernon {
 	class ALGERNON_API Application
@@ -39,10 +36,9 @@ namespace Algernon {
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<VertexArray> m_VertexArray;
+		Timestep m_Timestep;
 
-		OrthographicCamera m_Camera;
+		float m_LastFrameTime = 0.0f;
 
 	private:
 		static Application* s_Instance;

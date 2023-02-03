@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Algernon/Core.h"
+#include "Algernon/Core/Timestep.h"
 #include "Algernon/Event/Event.h"
 
 namespace Algernon {
@@ -13,7 +14,7 @@ namespace Algernon {
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep ts) {}
 		virtual void OnEvent(Event& event) {}
 		virtual void OnImGuiRender() {}
 

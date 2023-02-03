@@ -1378,6 +1378,7 @@
     <ClInclude Include="src\Algernon\Renderer\RendererAPI.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\Algernon\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\Algernon\Core\Timestep.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Algernon\Application.cpp">

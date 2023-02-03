@@ -143,6 +143,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Algernon\Core\Timestep.h" />
     <ClInclude Include="src\Algernon\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\Algernon.h" />
     <ClInclude Include="src\Algernon\Application.h" />
