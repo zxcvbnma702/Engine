@@ -19,7 +19,7 @@ public:
 		};
 
 		//Create VertexBuffer
-		std::shared_ptr<Algernon::VertexBuffer> vertexBuffer;
+		Algernon::Ref<Algernon::VertexBuffer> vertexBuffer;
 		vertexBuffer.reset(Algernon::VertexBuffer::Create(vertices, sizeof(vertices)));
 
 		//Set VertexBuffer layout
@@ -34,7 +34,7 @@ public:
 		unsigned int indices[3] = { 0, 1, 2 };
 
 		//Create IndexBuffer
-		std::shared_ptr<Algernon::IndexBuffer> indexBuffer;
+		Algernon::Ref<Algernon::IndexBuffer> indexBuffer;
 		indexBuffer.reset(Algernon::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 
 		m_VertexArray->SetIndexBuffer(indexBuffer);
@@ -132,8 +132,8 @@ public:
 
 	}
 private:
-	std::shared_ptr<Algernon::Shader> m_Shader;
-	std::shared_ptr<Algernon::VertexArray> m_VertexArray;
+	Algernon::Ref<Algernon::Shader> m_Shader;
+	Algernon::Ref<Algernon::VertexArray> m_VertexArray;
 
 	Algernon::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
