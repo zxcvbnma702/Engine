@@ -1,6 +1,9 @@
 #include<Algernon.h>
 
 #include <glm/gtc/matrix_transform.hpp>
+#include <imgui/imgui.h>
+#include <glm/gtc/type_ptr.hpp>
+#include <Platform/OpenGL/OpenGLShader.h>
 
 class ExampleLayer : public Algernon::Layer
 {
@@ -65,14 +68,17 @@ public:
 			in vec3 v_Position;
 			in vec4 v_Color;
 
+			uniform vec3 u_Color;
+
 			void main()
 			{
 				color = vec4(v_Position * 0.5 + 0.5, 1.0);
 				color = v_Color;
+				color = vec4(u_Color, 1.0);
 			}
 		)";
 
-		m_Shader.reset(new Algernon::Shader(vertexSrc, fragmentSrc));
+		m_Shader.reset(Algernon::Shader::Create(vertexSrc, fragmentSrc));
 	}
 
 	void OnUpdate(Algernon::Timestep ts) override
@@ -102,6 +108,9 @@ public:
 
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
+		std::dynamic_pointer_cast<Algernon::OpenGLShader>(m_Shader)->Bind();
+		std::dynamic_pointer_cast<Algernon::OpenGLShader>(m_Shader)->UploadUniformFloat3("u_Color", m_Color);
+
 		for (int y = 0; y < 20; y++)
 		{
 			for (int x = 0; x < 20; x++)
@@ -117,6 +126,9 @@ public:
 
 	virtual void OnImGuiRender() override
 	{
+		ImGui::Begin("Settings");
+		ImGui::ColorEdit3("Square Color", glm::value_ptr(m_Color));
+		ImGui::End();
 
 	}
 private:
@@ -129,6 +141,8 @@ private:
 
 	float m_CameraRotation = 0.0f;
 	float m_CameraRotationSpeed = 180.0f;
+
+	glm::vec3 m_Color = { 0.2f, 0.3f, 0.8f };
 };
 
 class SandBox : public Algernon::Application {
