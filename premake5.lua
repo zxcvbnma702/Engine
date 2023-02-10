@@ -17,6 +17,7 @@ IncludeDir["GLFW"] = "Algernon/vendor/GLFW/include"
 IncludeDir["Glad"] = "Algernon/vendor/Glad/include"
 IncludeDir["ImGui"] = "Algernon/vendor/imgui"
 IncludeDir["glm"] = "Algernon/vendor/glm"
+IncludeDir["stb_image"] = "Algernon/vendor/stb"
 
 group "Dependencies"
 	include "Algernon/vendor/GLFW"
@@ -47,6 +48,8 @@ project "Algernon"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/stb/**.cpp",
+		"%{prj.name}/vendor/stb/**.h",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl",
 	}
@@ -58,7 +61,8 @@ project "Algernon"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.stb_image}"
 	}
 
 	links 

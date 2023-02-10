@@ -20,6 +20,7 @@
 
 #include "Algernon/Renderer/Shader.h"
 #include "Algernon/Renderer/Buffer.h"
+#include "Algernon/Renderer/Texture.h"
 #include "Algernon/Renderer/VertexArray.h"
 
 #include "Algernon/Renderer/OrthographicCamera.h"

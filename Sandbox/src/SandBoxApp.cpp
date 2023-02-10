@@ -79,6 +79,65 @@ public:
 		)";
 
 		m_Shader.reset(Algernon::Shader::Create(vertexSrc, fragmentSrc));
+
+		//////// square /////////////
+		m_SquareVA.reset(Algernon::VertexArray::Create());
+		float squareVertices[5 * 4] = {
+			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
+			 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+			 0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
+			-0.5f,  0.5f, 0.0f, 0.0f, 1.0f
+		};
+
+		Algernon ::Ref<Algernon::VertexBuffer> squareVB;
+		squareVB.reset(Algernon::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+		squareVB->SetLayout({
+			{ Algernon::ShaderDataType::Float3, "a_Position" },
+			{ Algernon::ShaderDataType::Float2, "a_TexCoord" }
+			});
+
+		m_SquareVA->AddVertexBuffer(squareVB);
+
+		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
+		Algernon::Ref<Algernon::IndexBuffer> squareIB;
+		squareIB.reset(Algernon::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+		m_SquareVA->SetIndexBuffer(squareIB);
+
+		std::string textureShaderVertexSrc = R"(
+			#version 330 core
+			
+			layout(location = 0) in vec3 a_Position;
+			layout(location = 1) in vec2 a_TexCoord;
+			uniform mat4 u_ViewProjection;
+			uniform mat4 u_Transform;
+			out vec2 v_TexCoord;
+			void main()
+			{
+				v_TexCoord = a_TexCoord;
+				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);	
+			}
+		)";
+
+		std::string textureShaderFragmentSrc = R"(
+			#version 330 core
+			
+			layout(location = 0) out vec4 color;
+			in vec2 v_TexCoord;
+			
+			uniform sampler2D u_Texture;
+			void main()
+			{
+				color = texture(u_Texture, v_TexCoord);
+			}
+		)";
+
+		m_TextureShader.reset(Algernon::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
+
+		m_Texture = Algernon::Texture2D::Create("assets/textures/Checkerboard.png");
+
+		std::dynamic_pointer_cast<Algernon::OpenGLShader>(m_TextureShader)->Bind();
+		std::dynamic_pointer_cast<Algernon::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+
 	}
 
 	void OnUpdate(Algernon::Timestep ts) override
@@ -121,6 +180,9 @@ public:
 			}
 		}
 
+		m_Texture->Bind();
+		Algernon::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+
 		Algernon::Renderer::EndScene();
 	}
 
@@ -134,6 +196,11 @@ public:
 private:
 	Algernon::Ref<Algernon::Shader> m_Shader;
 	Algernon::Ref<Algernon::VertexArray> m_VertexArray;
+
+	Algernon::Ref<Algernon::Shader>  m_TextureShader;
+	Algernon::Ref<Algernon::VertexArray> m_SquareVA;
+
+	Algernon::Ref<Algernon::Texture2D> m_Texture;
 
 	Algernon::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
