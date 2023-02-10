@@ -108,9 +108,12 @@ public:
 			
 			layout(location = 0) in vec3 a_Position;
 			layout(location = 1) in vec2 a_TexCoord;
+
 			uniform mat4 u_ViewProjection;
 			uniform mat4 u_Transform;
+
 			out vec2 v_TexCoord;
+
 			void main()
 			{
 				v_TexCoord = a_TexCoord;
@@ -134,6 +137,7 @@ public:
 		m_TextureShader.reset(Algernon::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
 
 		m_Texture = Algernon::Texture2D::Create("assets/textures/Checkerboard.png");
+		m_CTexture = Algernon::Texture2D::Create("assets/textures/ChernoLogo.png");
 
 		std::dynamic_pointer_cast<Algernon::OpenGLShader>(m_TextureShader)->Bind();
 		std::dynamic_pointer_cast<Algernon::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
@@ -183,6 +187,9 @@ public:
 		m_Texture->Bind();
 		Algernon::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
+		m_CTexture->Bind();
+		Algernon::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.0f)));
+
 		Algernon::Renderer::EndScene();
 	}
 
@@ -200,7 +207,7 @@ private:
 	Algernon::Ref<Algernon::Shader>  m_TextureShader;
 	Algernon::Ref<Algernon::VertexArray> m_SquareVA;
 
-	Algernon::Ref<Algernon::Texture2D> m_Texture;
+	Algernon::Ref<Algernon::Texture2D> m_Texture, m_CTexture;
 
 	Algernon::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
