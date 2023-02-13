@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <unordered_map>
 
 namespace Algernon {
 
@@ -18,8 +19,36 @@ namespace Algernon {
 		/// <param name="vertexSrc"> => Vertex shader program</param>
 		/// <param name="fragmentSrc"> => Fragement shader program</param>
 		/// <returns>Shader class pointer</returns>
-		static Shader* Create(const std::string& vertexSrc, const std::string& fragmentSrc);
-		static Shader* Create(const std::string& filepath);
+		static Ref<Shader> Create(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc);
+		static Ref<Shader> Create(const std::string& filepath);
+
+		virtual const std::string& GetName() const = 0;
+	};
+
+	class ShaderLibrary
+	{
+	public:
+		void Add(const std::string& name, const Ref<Shader>& shader);
+		void Add(const Ref<Shader>& shader);
+
+		/// <summary>
+		/// Load Shader by filepath, and then add Shader to library.
+		/// </summary>
+		/// <param name="filepath">Shader filepath</param>
+		/// <returns>Shader`s Ref</returns>
+		Ref<Shader> Load(const std::string& filepath);
+		Ref<Shader> Load(const std::string& name, const std::string& filepath);
+
+		/// <summary>
+		/// Get Shader by it`s name, not abolute pathfile.
+		/// </summary>
+		/// <param name="name">Shader filepath`s name</param>
+		/// <returns>Shader`s Ref</returns>
+		Ref<Shader> Get(const std::string& name);
+
+		bool Exists(const std::string& name) const;
+	private:
+		std::unordered_map<std::string, Ref<Shader>> m_Shaders;
 	};
 
 }

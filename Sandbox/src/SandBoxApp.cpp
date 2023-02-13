@@ -78,7 +78,7 @@ public:
 			}
 		)";
 
-		m_Shader.reset(Algernon::Shader::Create(vertexSrc, fragmentSrc));
+		m_Shader = Algernon::Shader::Create("TriagleShader", vertexSrc, fragmentSrc);
 
 		//////// square /////////////
 		m_SquareVA.reset(Algernon::VertexArray::Create());
@@ -103,7 +103,7 @@ public:
 		squareIB.reset(Algernon::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
-		m_TextureShader.reset(Algernon::Shader::Create("assets/shaders/Texture.glsl"));
+		auto m_TextureShader = m_Library.Load("assets/shaders/Texture.glsl");
 
 		m_Texture = Algernon::Texture2D::Create("assets/textures/Checkerboard.png");
 		m_CTexture = Algernon::Texture2D::Create("assets/textures/ChernoLogo.png");
@@ -153,6 +153,8 @@ public:
 			}
 		}
 
+		auto m_TextureShader = m_Library.Get("Texture");
+
 		m_Texture->Bind();
 		Algernon::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
@@ -170,10 +172,10 @@ public:
 
 	}
 private:
+	Algernon::ShaderLibrary m_Library;
 	Algernon::Ref<Algernon::Shader> m_Shader;
 	Algernon::Ref<Algernon::VertexArray> m_VertexArray;
 
-	Algernon::Ref<Algernon::Shader>  m_TextureShader;
 	Algernon::Ref<Algernon::VertexArray> m_SquareVA;
 
 	Algernon::Ref<Algernon::Texture2D> m_Texture, m_CTexture;
