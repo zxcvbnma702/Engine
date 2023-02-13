@@ -19,6 +19,7 @@ namespace Algernon {
 		/// <param name="fragmentSrc"> => Fragement shader program</param>
 		/// <returns>Shader class pointer</returns>
 		static Shader* Create(const std::string& vertexSrc, const std::string& fragmentSrc);
+		static Shader* Create(const std::string& filepath);
 	};
 
 }
