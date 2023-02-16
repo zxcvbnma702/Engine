@@ -8,7 +8,7 @@
 class ExampleLayer : public Algernon::Layer
 {
 public:
-	ExampleLayer(): Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f)
+	ExampleLayer(): Layer("Example"), m_CameraController(1280.0f/ 720.0f)
 	{
 		m_VertexArray.reset(Algernon::VertexArray::Create());
 
@@ -115,28 +115,12 @@ public:
 
 	void OnUpdate(Algernon::Timestep ts) override
 	{
-		if (Algernon::Input::IsKeyPressed(AL_KEY_LEFT))
-			m_CameraPosition.x -= m_CameraMoveSpeed * ts;
-		else if (Algernon::Input::IsKeyPressed(AL_KEY_RIGHT))
-			m_CameraPosition.x += m_CameraMoveSpeed * ts;
-
-		if (Algernon::Input::IsKeyPressed(AL_KEY_UP))
-			m_CameraPosition.y += m_CameraMoveSpeed * ts;
-		else if (Algernon::Input::IsKeyPressed(AL_KEY_DOWN))
-			m_CameraPosition.y -= m_CameraMoveSpeed * ts;
-
-		if (Algernon::Input::IsKeyPressed(AL_KEY_A))
-			m_CameraRotation += m_CameraRotationSpeed * ts;
-		if (Algernon::Input::IsKeyPressed(AL_KEY_D))
-			m_CameraRotation -= m_CameraRotationSpeed * ts;
+		m_CameraController.OnUpdate(ts);
 
 		Algernon::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 		Algernon::RenderCommand::Clear();
 
-		m_Camera.SetPosition(m_CameraPosition);
-		m_Camera.SetRotation(m_CameraRotation);
-
-		Algernon::Renderer::BeginScene(m_Camera);
+		Algernon::Renderer::BeginScene(m_CameraController.GetCamera());
 
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
@@ -169,7 +153,11 @@ public:
 		ImGui::Begin("Settings");
 		ImGui::ColorEdit3("Square Color", glm::value_ptr(m_Color));
 		ImGui::End();
+	}
 
+	void OnEvent(Algernon::Event& e)
+	{
+		m_CameraController.OnEvent(e);
 	}
 private:
 	Algernon::ShaderLibrary m_Library;
@@ -180,12 +168,7 @@ private:
 
 	Algernon::Ref<Algernon::Texture2D> m_Texture, m_CTexture;
 
-	Algernon::OrthographicCamera m_Camera;
-	glm::vec3 m_CameraPosition;
-	float m_CameraMoveSpeed = 5.0f;
-
-	float m_CameraRotation = 0.0f;
-	float m_CameraRotationSpeed = 180.0f;
+	Algernon::OrthographicCameraController m_CameraController;
 
 	glm::vec3 m_Color = { 0.2f, 0.3f, 0.8f };
 };

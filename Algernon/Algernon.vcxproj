@@ -143,6 +143,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Algernon\CameraController.h" />
     <ClInclude Include="src\Algernon.h" />
     <ClInclude Include="src\Algernon\Application.h" />
     <ClInclude Include="src\Algernon\Core.h" />
@@ -596,6 +597,7 @@
     <ClInclude Include="vendor\stb\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Algernon\CameraController.cpp" />
     <ClCompile Include="src\Algernon\Application.cpp" />
     <ClCompile Include="src\Algernon\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Algernon\ImGui\ImGuiLayer.cpp" />

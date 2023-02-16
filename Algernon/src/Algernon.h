@@ -13,6 +13,7 @@
 #include "Algernon/Input.h"
 #include "Algernon/Keycodes.h"
 #include "Algernon/MouseButtonCodes.h"
+#include "Algernon/CameraController.h"
 
 //==== Renderer ---------------------
 #include "Algernon/Renderer/Renderer.h"
