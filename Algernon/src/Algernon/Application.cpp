@@ -50,8 +50,10 @@ namespace Algernon {
 			m_LastFrameTime = time;
 
 			//Render form bottom to top
-			for (Layer* layer : m_LayerStack)
-				layer->OnUpdate(timestap);
+			if (!m_Minimized) {
+				for (Layer* layer : m_LayerStack)
+					layer->OnUpdate(timestap);
+			}
 
 			m_ImGuiLayer->Begin();
 			for (Layer* layer : m_LayerStack)
@@ -66,6 +68,7 @@ namespace Algernon {
 	{
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
+		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(OnWindowResize));
 
 		//Event dispatcher from top to bottom
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
@@ -80,6 +83,18 @@ namespace Algernon {
 	{
 		m_Running = false;
 		return true;
+	}
+
+	bool Application::OnWindowResize(WindowResizeEvent& e)
+	{
+		if (e.GetWidth() == 0 || e.GetWidth() == 0) {
+			m_Minimized = true;
+			return false;
+		}
+		m_Minimized = false;
+		Renderer::OnWindowResize(e.GetWidth(), e.GetHeight());
+
+		return false;
 	}
 
 	void Application::PushLayer(Layer* layer)
