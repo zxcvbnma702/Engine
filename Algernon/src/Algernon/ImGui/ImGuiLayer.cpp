@@ -4,7 +4,7 @@
 #include "imgui.h"
 #include <GLFW/glfw3.h>
 
-#include "Algernon/Application.h"
+#include "Algernon/Core/Application.h"
 #include <glad/glad.h>
 
 #include "backends/imgui_impl_glfw.h"

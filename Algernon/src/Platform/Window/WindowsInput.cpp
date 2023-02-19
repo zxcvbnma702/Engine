@@ -1,6 +1,6 @@
 #include "Alpch.h"
 #include "WindowsInput.h"
-#include "Algernon/Application.h"
+#include "Algernon/Core/Application.h"
 #include <GLFW/glfw3.h>
 
 

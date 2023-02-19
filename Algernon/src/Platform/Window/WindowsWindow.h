@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Algernon/Window.h"
+#include "Algernon/Core/Window.h"
 
 #include "Algernon/Renderer/GraphicsContext.h"
 #include <GLFW/glfw3.h>

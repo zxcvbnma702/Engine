@@ -3,7 +3,7 @@
 #include "Alpch.h"
 
 #include "Core.h"
-#include "Event/Event.h"
+#include "Algernon/Event/Event.h"
 
 namespace Algernon
 {

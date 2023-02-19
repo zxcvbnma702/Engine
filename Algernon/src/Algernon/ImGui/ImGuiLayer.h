@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Algernon/Layer.h"
+#include "Algernon/Core/Layer.h"
 #include <Algernon/Event/MouseEvent.h>
 #include <Algernon/Event/KeyEvent.h>
 #include <Algernon/Event/ApplicationEvent.h>

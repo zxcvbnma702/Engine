@@ -1,5 +1,5 @@
 #pragma once
-#include "Algernon/Input.h"
+#include "Algernon/Core/Input.h"
 
 namespace Algernon
 {

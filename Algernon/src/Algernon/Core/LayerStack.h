@@ -1,5 +1,5 @@
 #pragma once
-#include "Algernon/Core.h"
+#include "Algernon/Core/Core.h"
 #include "Layer.h"
 
 #include <vector>

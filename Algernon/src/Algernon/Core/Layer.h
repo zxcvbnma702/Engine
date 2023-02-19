@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Algernon/Core.h"
+#include "Algernon/Core/Core.h"
 #include "Algernon/Core/Timestep.h"
 #include "Algernon/Event/Event.h"
 

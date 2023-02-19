@@ -143,24 +143,25 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Algernon\CameraController.h" />
     <ClInclude Include="src\Algernon.h" />
-    <ClInclude Include="src\Algernon\Application.h" />
-    <ClInclude Include="src\Algernon\Core.h" />
+    <ClInclude Include="src\Algernon\Core\Application.h" />
+    <ClInclude Include="src\Algernon\Core\Core.h" />
+    <ClInclude Include="src\Algernon\Core\EntryPoint.h" />
+    <ClInclude Include="src\Algernon\Core\Input.h" />
+    <ClInclude Include="src\Algernon\Core\Keycodes.h" />
+    <ClInclude Include="src\Algernon\Core\Layer.h" />
+    <ClInclude Include="src\Algernon\Core\LayerStack.h" />
+    <ClInclude Include="src\Algernon\Core\Log.h" />
+    <ClInclude Include="src\Algernon\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\Algernon\Core\Timestep.h" />
-    <ClInclude Include="src\Algernon\EntryPoint.h" />
+    <ClInclude Include="src\Algernon\Core\Window.h" />
     <ClInclude Include="src\Algernon\Event\ApplicationEvent.h" />
     <ClInclude Include="src\Algernon\Event\Event.h" />
     <ClInclude Include="src\Algernon\Event\KeyEvent.h" />
     <ClInclude Include="src\Algernon\Event\MouseEvent.h" />
     <ClInclude Include="src\Algernon\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="src\Algernon\Input.h" />
-    <ClInclude Include="src\Algernon\Keycodes.h" />
-    <ClInclude Include="src\Algernon\Layer.h" />
-    <ClInclude Include="src\Algernon\LayerStack.h" />
-    <ClInclude Include="src\Algernon\Log.h" />
-    <ClInclude Include="src\Algernon\MouseButtonCodes.h" />
     <ClInclude Include="src\Algernon\Renderer\Buffer.h" />
+    <ClInclude Include="src\Algernon\Renderer\CameraController.h" />
     <ClInclude Include="src\Algernon\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Algernon\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\Algernon\Renderer\RenderCommand.h" />
@@ -169,7 +170,6 @@
     <ClInclude Include="src\Algernon\Renderer\Shader.h" />
     <ClInclude Include="src\Algernon\Renderer\Texture.h" />
     <ClInclude Include="src\Algernon\Renderer\VertexArray.h" />
-    <ClInclude Include="src\Algernon\Window.h" />
     <ClInclude Include="src\Alpch.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
@@ -597,14 +597,14 @@
     <ClInclude Include="vendor\stb\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Algernon\CameraController.cpp" />
-    <ClCompile Include="src\Algernon\Application.cpp" />
+    <ClCompile Include="src\Algernon\Core\Application.cpp" />
+    <ClCompile Include="src\Algernon\Core\Layer.cpp" />
+    <ClCompile Include="src\Algernon\Core\LayerStack.cpp" />
+    <ClCompile Include="src\Algernon\Core\Log.cpp" />
     <ClCompile Include="src\Algernon\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Algernon\ImGui\ImGuiLayer.cpp" />
-    <ClCompile Include="src\Algernon\Layer.cpp" />
-    <ClCompile Include="src\Algernon\LayerStack.cpp" />
-    <ClCompile Include="src\Algernon\Log.cpp" />
     <ClCompile Include="src\Algernon\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Algernon\Renderer\CameraController.cpp" />
     <ClCompile Include="src\Algernon\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Algernon\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\Algernon\Renderer\Renderer.cpp" />

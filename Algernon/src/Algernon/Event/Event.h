@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Alpch.h"
-#include "ALgernon/Core.h"
+#include "Algernon/Core/Core.h"
 
 #include <string>
 #include <functional>

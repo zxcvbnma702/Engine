@@ -2,18 +2,18 @@
 
 /// for use by application
 
-#include "Algernon/Application.h"
-#include "Algernon/Log.h"
-#include "Algernon/Layer.h"
+#include "Algernon/Core/Application.h"
+#include "Algernon/Core/Log.h"
+#include "Algernon/Core/Layer.h"
 
 #include "Algernon/Core/Timestep.h"
 
 #include "Algernon/ImGui/ImGuiLayer.h"
 
-#include "Algernon/Input.h"
-#include "Algernon/Keycodes.h"
-#include "Algernon/MouseButtonCodes.h"
-#include "Algernon/CameraController.h"
+#include "Algernon/Core/Input.h"
+#include "Algernon/Core/Keycodes.h"
+#include "Algernon/Core/MouseButtonCodes.h"
+#include "Algernon/Renderer/CameraController.h"
 
 //==== Renderer ---------------------
 #include "Algernon/Renderer/Renderer.h"
@@ -28,5 +28,5 @@
 //-----------------------------------
 
 //-----------------------
-#include"Algernon/EntryPoint.h"
+#include"Algernon/Core/EntryPoint.h"
 //------------------------

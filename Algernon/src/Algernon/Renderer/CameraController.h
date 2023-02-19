@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Algernon/Renderer/OrthographicCamera.h"
-#include "Core/Timestep.h"
+#include "Algernon/Core/Timestep.h"
 
 #include "Algernon/Event/ApplicationEvent.h"
 #include "Algernon/Event/MouseEvent.h"

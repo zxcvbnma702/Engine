@@ -1,12 +1,14 @@
 #pragma once
 
 #include "Core.h"
-#include "Event/Event.h"
 #include "Window.h"
-#include "Event/ApplicationEvent.h"
 #include "LayerStack.h"
-#include "Algernon/ImGui/ImGuiLayer.h"
+#include "Algernon/Event/Event.h"
+#include "Algernon/Event/ApplicationEvent.h"
+
 #include "Algernon/Core/Timestep.h"
+#include "Algernon/ImGui/ImGuiLayer.h"
+
 
 namespace Algernon {
 	class ALGERNON_API Application

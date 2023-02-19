@@ -1,8 +1,8 @@
 #include "Alpch.h"
 #include "CameraController.h"
 
-#include "Algernon/Input.h"
-#include "Algernon/Keycodes.h"
+#include "Algernon/Core/Input.h"
+#include "Algernon/Core/Keycodes.h"
 
 namespace Algernon
 {
