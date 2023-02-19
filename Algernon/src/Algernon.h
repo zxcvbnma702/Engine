@@ -28,5 +28,5 @@
 //-----------------------------------
 
 //-----------------------
-#include"Algernon/Core/EntryPoint.h"
+//#include"Algernon/Core/EntryPoint.h"
 //------------------------

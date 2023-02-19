@@ -1,16 +1,19 @@
 #include<Algernon.h>
+#include<Algernon/Core/EntryPoint.h>
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <imgui/imgui.h>
 #include <glm/gtc/type_ptr.hpp>
 #include <Platform/OpenGL/OpenGLShader.h>
 
+#include "SandBox2D.h"
+
 class ExampleLayer : public Algernon::Layer
 {
 public:
 	ExampleLayer(): Layer("Example"), m_CameraController(1280.0f/ 720.0f)
 	{
-		m_VertexArray.reset(Algernon::VertexArray::Create());
+		m_VertexArray = Algernon::VertexArray::Create();
 
 		float vertices[3 * 7] = {
 			-0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
@@ -81,7 +84,7 @@ public:
 		m_Shader = Algernon::Shader::Create("TriagleShader", vertexSrc, fragmentSrc);
 
 		//////// square /////////////
-		m_SquareVA.reset(Algernon::VertexArray::Create());
+		m_SquareVA = Algernon::VertexArray::Create();
 		float squareVertices[5 * 4] = {
 			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
 			 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
@@ -176,7 +179,7 @@ private:
 class SandBox : public Algernon::Application {
 public:
 	SandBox() {
-		PushLayer(new ExampleLayer());
+		PushLayer(new SandBox2D());
 	}
 	~SandBox() {
 	}
