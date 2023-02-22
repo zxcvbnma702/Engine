@@ -8,7 +8,8 @@
 
 namespace Algernon
 {
-	static bool s_GLFWInitialized = false;
+	//static bool s_GLFWInitialized = false;
+	static uint8_t s_GLFWWindowCount = 0;
 
 	static void GLFWErrorCallback(int error, const char* description)
 	{
@@ -39,18 +40,19 @@ namespace Algernon
 
 		AL_CORE_INFO("Create Window {0} ({1}, {2})", props.Title, props.Width, props.Height);
 
-		if (!s_GLFWInitialized)
+		if (s_GLFWWindowCount == 0)
 		{
 			int success = glfwInit();
 			AL_CORE_ASSERT(success, "Could not intialize GLFW!");
 
 			glfwSetErrorCallback(GLFWErrorCallback);
-			s_GLFWInitialized = true;
 		}
 
 		//Create a window window
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		
+		++s_GLFWWindowCount;
+
+
 		m_Context = CreateScope<OpenGLContext>(m_Window);
 		m_Context->Init();
 
@@ -160,6 +162,12 @@ namespace Algernon
 	void WindowsWindow::ShutDown()
 	{
 		glfwDestroyWindow(m_Window);
+
+		if (--s_GLFWWindowCount == 0)
+		{
+			AL_CORE_INFO("Terminating GLFW");
+			glfwTerminate();
+		}
 	}
 
 	void WindowsWindow::OnUpdate()

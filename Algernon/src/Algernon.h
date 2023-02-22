@@ -17,6 +17,7 @@
 
 //==== Renderer ---------------------
 #include "Algernon/Renderer/Renderer.h"
+#include "Algernon/Renderer/Renderer2D.h"
 #include "Algernon/Renderer/RenderCommand.h"
 
 #include "Algernon/Renderer/Shader.h"

@@ -23,7 +23,7 @@ public:
 
 		//Create VertexBuffer
 		Algernon::Ref<Algernon::VertexBuffer> vertexBuffer;
-		vertexBuffer.reset(Algernon::VertexBuffer::Create(vertices, sizeof(vertices)));
+		vertexBuffer = Algernon::VertexBuffer::Create(vertices, sizeof(vertices));
 
 		//Set VertexBuffer layout
 		Algernon::BufferLayout layout = {
@@ -38,7 +38,7 @@ public:
 
 		//Create IndexBuffer
 		Algernon::Ref<Algernon::IndexBuffer> indexBuffer;
-		indexBuffer.reset(Algernon::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		indexBuffer = Algernon::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
 
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
@@ -93,7 +93,7 @@ public:
 		};
 
 		Algernon ::Ref<Algernon::VertexBuffer> squareVB;
-		squareVB.reset(Algernon::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+		squareVB = Algernon::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
 		squareVB->SetLayout({
 			{ Algernon::ShaderDataType::Float3, "a_Position" },
 			{ Algernon::ShaderDataType::Float2, "a_TexCoord" }
@@ -103,7 +103,7 @@ public:
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
 		Algernon::Ref<Algernon::IndexBuffer> squareIB;
-		squareIB.reset(Algernon::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+		squareIB = Algernon::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
 		auto m_TextureShader = m_Library.Load("assets/shaders/Texture.glsl");

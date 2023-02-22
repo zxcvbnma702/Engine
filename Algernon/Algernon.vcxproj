@@ -166,6 +166,7 @@
     <ClInclude Include="src\Algernon\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\Algernon\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Algernon\Renderer\Renderer.h" />
+    <ClInclude Include="src\Algernon\Renderer\Renderer2D.h" />
     <ClInclude Include="src\Algernon\Renderer\RendererAPI.h" />
     <ClInclude Include="src\Algernon\Renderer\Shader.h" />
     <ClInclude Include="src\Algernon\Renderer\Texture.h" />
@@ -608,6 +609,7 @@
     <ClCompile Include="src\Algernon\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Algernon\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\Algernon\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Algernon\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\Algernon\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\Algernon\Renderer\Shader.cpp" />
     <ClCompile Include="src\Algernon\Renderer\Texture.cpp" />
