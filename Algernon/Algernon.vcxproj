@@ -155,6 +155,7 @@
     <ClInclude Include="src\Algernon\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\Algernon\Core\Timestep.h" />
     <ClInclude Include="src\Algernon\Core\Window.h" />
+    <ClInclude Include="src\Algernon\Debug\Instrumentor.h" />
     <ClInclude Include="src\Algernon\Event\ApplicationEvent.h" />
     <ClInclude Include="src\Algernon\Event\Event.h" />
     <ClInclude Include="src\Algernon\Event\KeyEvent.h" />

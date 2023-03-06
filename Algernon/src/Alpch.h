@@ -15,6 +15,8 @@
 
 #include "Algernon/Core/Log.h"
 
+#include "Algernon/Debug/Instrumentor.h"
+
 #ifdef HZ_PLATFORM_WINDOWS
 #include <Windows.h>
 #endif

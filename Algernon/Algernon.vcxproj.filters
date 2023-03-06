@@ -1411,6 +1411,7 @@
       <Filter>vendor\stb</Filter>
     </ClInclude>
     <ClInclude Include="src\Algernon\Renderer\Renderer2D.h" />
+    <ClInclude Include="src\Algernon\Debug\Instrumentor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Algernon\Core\Application.cpp">
