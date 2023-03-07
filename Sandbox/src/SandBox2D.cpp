@@ -15,11 +15,14 @@ SandBox2D::SandBox2D()
 
 void SandBox2D::OnAttach()
 {
+	AL_PROFILE_FUNCTION();
+
 	m_CheckerboardTexture = Algernon::Texture2D::Create("assets/textures/Checkerboard.png");
 }
 
 void SandBox2D::OnDetach()
 {
+	AL_PROFILE_FUNCTION();
 }
 
 void SandBox2D::OnUpdate(Algernon::Timestep ts)
@@ -27,11 +30,8 @@ void SandBox2D::OnUpdate(Algernon::Timestep ts)
 	AL_PROFILE_SCOPE("Sandbox2D::OnUpdate");
 
 	// Update
-	{
-		AL_PROFILE_SCOPE("CameraController::OnUpdate");
-		m_CameraController.OnUpdate(ts);
-	}
-
+	m_CameraController.OnUpdate(ts);
+	
 	// Render
 	{
 		AL_PROFILE_SCOPE("Renderer Prep");

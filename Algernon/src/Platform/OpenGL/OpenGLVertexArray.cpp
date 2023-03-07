@@ -29,26 +29,36 @@ namespace Algernon
 
 	OpenGLVertexArray::OpenGLVertexArray()
 	{
+		AL_PROFILE_FUNCTION();
+
 		glCreateVertexArrays(1, &m_RendererID);
 	}
 	
 	OpenGLVertexArray::~OpenGLVertexArray()
 	{
+		AL_PROFILE_FUNCTION();
+
 		glDeleteVertexArrays(1, &m_RendererID);
 	}
 	
 	void OpenGLVertexArray::Bind() const
 	{
+		AL_PROFILE_FUNCTION();
+
 		glBindVertexArray(m_RendererID);
 	}
 	
 	void OpenGLVertexArray::UnBind() const
 	{
+		AL_PROFILE_FUNCTION();
+
 		glBindVertexArray(0);
 	}
 	
 	void OpenGLVertexArray::AddVertexBuffer(const Ref<VertexBuffer>& vertexBuffer)
 	{
+		AL_PROFILE_FUNCTION();
+
 		AL_CORE_ASSERT(vertexBuffer->GetLayout().GetElements().size(), "Vertex Buffer has no layout!");
 
 		glBindVertexArray(m_RendererID);
@@ -71,6 +81,8 @@ namespace Algernon
 	
 	void OpenGLVertexArray::SetIndexBuffer(const Ref<IndexBuffer>& indexBuffer)
 	{
+		AL_PROFILE_FUNCTION();
+
 		glBindVertexArray(m_RendererID);
 		indexBuffer->Bind();
 

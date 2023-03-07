@@ -23,16 +23,22 @@ namespace Algernon
 
 	WindowsWindow::WindowsWindow(const WindowProps& props)
 	{
+		AL_PROFILE_FUNCTION();
+
 		Init(props);
 	}
 
 	WindowsWindow::~WindowsWindow()
 	{
+		AL_PROFILE_FUNCTION();
+
 		ShutDown();
 	}
 
 	void WindowsWindow::Init(const WindowProps& props)
 	{
+		AL_PROFILE_FUNCTION();
+
 		//Set attribute of Windows
 		m_Data.Title = props.Title;
 		m_Data.Height = props.Height;
@@ -42,6 +48,8 @@ namespace Algernon
 
 		if (s_GLFWWindowCount == 0)
 		{
+			AL_PROFILE_FUNCTION();
+
 			int success = glfwInit();
 			AL_CORE_ASSERT(success, "Could not intialize GLFW!");
 
@@ -49,8 +57,11 @@ namespace Algernon
 		}
 
 		//Create a window window
-		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		++s_GLFWWindowCount;
+		{
+			AL_PROFILE_SCOPE("glfwCreateWindow")
+			m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
+			++s_GLFWWindowCount;
+		}
 
 
 		m_Context = CreateScope<OpenGLContext>(m_Window);
@@ -161,6 +172,8 @@ namespace Algernon
 
 	void WindowsWindow::ShutDown()
 	{
+		AL_PROFILE_FUNCTION();
+
 		glfwDestroyWindow(m_Window);
 
 		if (--s_GLFWWindowCount == 0)
@@ -172,12 +185,16 @@ namespace Algernon
 
 	void WindowsWindow::OnUpdate()
 	{
+		AL_PROFILE_FUNCTION();
+
 		glfwPollEvents();
 		m_Context->SwapBuffers();
 	}
 
 	void WindowsWindow::SetVSync(bool enabled)
 	{
+		AL_PROFILE_FUNCTION();
+
 		if (enabled)
 			glfwSwapInterval(1);
 		else
