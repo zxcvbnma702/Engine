@@ -10,6 +10,9 @@
     <Filter Include="src\Algernon\Core">
       <UniqueIdentifier>{AA84BABA-169B-B850-5F12-4472CB6789D8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Algernon\Debug">
+      <UniqueIdentifier>{08751712-F458-D867-5DB9-D2BA49BCC2E9}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Algernon\Event">
       <UniqueIdentifier>{E3EB3212-CFCF-F367-3830-EEBA2433DEE9}</UniqueIdentifier>
     </Filter>
@@ -81,7 +84,7 @@
     <ClInclude Include="src\Algernon\Core\Log.h">
       <Filter>src\Algernon\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Algernon\Core\MouseButtonCodes.h">
+    <ClInclude Include="src\Algernon\Core\MouseCodes.h">
       <Filter>src\Algernon\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Algernon\Core\Timestep.h">
@@ -89,6 +92,9 @@
     </ClInclude>
     <ClInclude Include="src\Algernon\Core\Window.h">
       <Filter>src\Algernon\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Algernon\Debug\Instrumentor.h">
+      <Filter>src\Algernon\Debug</Filter>
     </ClInclude>
     <ClInclude Include="src\Algernon\Event\ApplicationEvent.h">
       <Filter>src\Algernon\Event</Filter>
@@ -121,6 +127,9 @@
       <Filter>src\Algernon\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Algernon\Renderer\Renderer.h">
+      <Filter>src\Algernon\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Algernon\Renderer\Renderer2D.h">
       <Filter>src\Algernon\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Algernon\Renderer\RendererAPI.h">
@@ -1410,8 +1419,6 @@
     <ClInclude Include="vendor\stb\stb_image.h">
       <Filter>vendor\stb</Filter>
     </ClInclude>
-    <ClInclude Include="src\Algernon\Renderer\Renderer2D.h" />
-    <ClInclude Include="src\Algernon\Debug\Instrumentor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Algernon\Core\Application.cpp">
@@ -1445,6 +1452,9 @@
       <Filter>src\Algernon\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Algernon\Renderer\Renderer.cpp">
+      <Filter>src\Algernon\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Algernon\Renderer\Renderer2D.cpp">
       <Filter>src\Algernon\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Algernon\Renderer\RendererAPI.cpp">
@@ -1489,6 +1499,5 @@
     <ClCompile Include="vendor\stb\stb_image.cpp">
       <Filter>vendor\stb</Filter>
     </ClCompile>
-    <ClCompile Include="src\Algernon\Renderer\Renderer2D.cpp" />
   </ItemGroup>
 </Project>

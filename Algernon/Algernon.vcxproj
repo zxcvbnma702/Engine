@@ -152,7 +152,7 @@
     <ClInclude Include="src\Algernon\Core\Layer.h" />
     <ClInclude Include="src\Algernon\Core\LayerStack.h" />
     <ClInclude Include="src\Algernon\Core\Log.h" />
-    <ClInclude Include="src\Algernon\Core\MouseButtonCodes.h" />
+    <ClInclude Include="src\Algernon\Core\MouseCodes.h" />
     <ClInclude Include="src\Algernon\Core\Timestep.h" />
     <ClInclude Include="src\Algernon\Core\Window.h" />
     <ClInclude Include="src\Algernon\Debug\Instrumentor.h" />
