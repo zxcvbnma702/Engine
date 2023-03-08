@@ -40,6 +40,6 @@ namespace Algernon
 		virtual void* GetNativeWindow() const = 0;
 
 		//Generic interface for creating windows
-		static Window* Create(const WindowProps& props = WindowProps());
+		static Scope<Window> Create(const WindowProps& props = WindowProps());
 	};
 }

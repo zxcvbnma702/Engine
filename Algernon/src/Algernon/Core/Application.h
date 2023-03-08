@@ -9,6 +9,7 @@
 #include "Algernon/Core/Timestep.h"
 #include "Algernon/ImGui/ImGuiLayer.h"
 
+int main(int argc, char** argv);
 
 namespace Algernon {
 	class ALGERNON_API Application
@@ -16,8 +17,6 @@ namespace Algernon {
 	public:
 		Application();
 		virtual ~Application();
-
-		void Run();
 
 		void OnEvent(Event& e);
 
@@ -29,6 +28,8 @@ namespace Algernon {
 
 		inline static Application& Get() { return *s_Instance; }
 	private:
+
+		void Run();
 
 		// Window close callback function
 		bool OnWindowClose(WindowCloseEvent& e);
@@ -46,6 +47,7 @@ namespace Algernon {
 
 	private:
 		static Application* s_Instance;
+		friend int ::main(int argc, char** argv);
 	};
 	//To be defined in Client
 	Application* CreateApplication();
