@@ -1499,5 +1499,7 @@
     <ClCompile Include="vendor\stb\stb_image.cpp">
       <Filter>vendor\stb</Filter>
     </ClCompile>
+    <ClCompile Include="src\Algernon\Core\Input.cpp" />
+    <ClCompile Include="src\Algernon\Core\Window.cpp" />
   </ItemGroup>
 </Project>

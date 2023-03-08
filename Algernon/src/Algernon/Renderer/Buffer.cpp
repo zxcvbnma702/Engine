@@ -6,18 +6,29 @@
 
 namespace Algernon
 {
+	Ref<VertexBuffer> VertexBuffer::Create(uint32_t size)
+	{
+		switch(Renderer::GetAPI())
+		{
+		case RendererAPI::API::None: AL_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
+		case RendererAPI::API::OpenGL: return CreateRef<OpenGLVertexBuffer>(size);
+
+		}
+		AL_CORE_ASSERT(false, "Unkone RendererAPI");
+		return nullptr;
+	}
+
 	Ref<VertexBuffer> VertexBuffer::Create(float* vertices, uint32_t size)
 	{
 		switch (Renderer::GetAPI())
 		{
 		case RendererAPI::API::None: AL_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-		case RendererAPI::API::OpenGL: return std::make_shared<OpenGLVertexBuffer>(vertices, size);
+		case RendererAPI::API::OpenGL: return CreateRef<OpenGLVertexBuffer>(vertices, size);
 
 		}
 
 		AL_CORE_ASSERT(false, "Unkone RendererAPI");
 		return nullptr;
-
 	}
 
 	Ref<IndexBuffer> IndexBuffer::Create(uint32_t* indices, uint32_t size)

@@ -600,9 +600,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Algernon\Core\Application.cpp" />
+    <ClCompile Include="src\Algernon\Core\Input.cpp" />
     <ClCompile Include="src\Algernon\Core\Layer.cpp" />
     <ClCompile Include="src\Algernon\Core\LayerStack.cpp" />
     <ClCompile Include="src\Algernon\Core\Log.cpp" />
+    <ClCompile Include="src\Algernon\Core\Window.cpp" />
     <ClCompile Include="src\Algernon\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Algernon\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Algernon\Renderer\Buffer.cpp" />
