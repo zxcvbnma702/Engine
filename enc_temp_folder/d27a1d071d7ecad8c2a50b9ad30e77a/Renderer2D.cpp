@@ -100,6 +100,11 @@ namespace Algernon
 	void Renderer2D::Shutdown()
 	{
 		AL_PROFILE_FUNCTION();
+
+		/*s_Data.QuadIndexCount = 0;
+		s_Data.QuadVertexBufferPtr = s_Data.QuadVertexBufferBase;
+
+		s_Data.TextureSlotIndex = 1;*/
 	}
 
 	void Renderer2D::BeginScene(const OrthographicCamera& camera)
