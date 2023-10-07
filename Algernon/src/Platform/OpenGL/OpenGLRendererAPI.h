@@ -4,7 +4,7 @@
 
 namespace Algernon
 {
-	class OpenGLRendererAPI: public RendererAPI
+	class OpenGLRendererAPI : public RendererAPI
 	{
 	public:
 		virtual void Init() override;
@@ -15,7 +15,4 @@ namespace Algernon
 
 		virtual void DrawIndexed(const Ref<VertexArray>& vertexArray, uint32_t indexCount = 0) override;
 	};
-
 }
-
-

@@ -8,6 +8,15 @@
 
 namespace Algernon
 {
+	struct OrthographicCameraBounds
+	{
+		float Left, Right;
+		float Bottom, Top;
+
+		float GetWidth() { return Right - Left; }
+		float GetHeight() { return Top - Bottom; }
+	};
+
 	class OrthographicCameraController
 	{
 	public:
@@ -22,6 +31,7 @@ namespace Algernon
 		float GetZoomLevel()const { return m_ZoomLevel; }
 		void SetZoomLevel(float level) { m_ZoomLevel = level; }
 
+		const OrthographicCameraBounds GetBounds() { return m_Bounds; }
 	private:
 		bool OnMouseScrolled(MouseScrolledEvent& e);
 		bool OnWindowResized(WindowResizeEvent& e);
@@ -30,6 +40,7 @@ namespace Algernon
 		float m_AspectRatio;
 		float m_ZoomLevel = 1.0f;
 		OrthographicCamera m_Camera;
+		OrthographicCameraBounds m_Bounds;
 
 		bool m_Rotation;
 
@@ -38,5 +49,3 @@ namespace Algernon
 		float m_CameraTranslationSpeed = 5.0f, m_CameraRotationSpeed = 180.0f;
 	};
 }
-
-
