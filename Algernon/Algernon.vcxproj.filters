@@ -1419,6 +1419,7 @@
     <ClInclude Include="vendor\stb\stb_image.h">
       <Filter>vendor\stb</Filter>
     </ClInclude>
+    <ClInclude Include="src\Algernon\System\ParticleSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Algernon\Core\Application.cpp">
@@ -1501,5 +1502,6 @@
     </ClCompile>
     <ClCompile Include="src\Algernon\Core\Input.cpp" />
     <ClCompile Include="src\Algernon\Core\Window.cpp" />
+    <ClCompile Include="src\Algernon\System\ParticleSystem.cpp" />
   </ItemGroup>
 </Project>

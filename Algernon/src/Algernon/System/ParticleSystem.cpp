@@ -1,4 +1,7 @@
+#include "Alpch.h"
 #include "ParticleSystem.h"
+
+#include "Algernon/Renderer/Renderer2D.h"
 
 #include <glm/gtc/constants.hpp>
 #define GLM_ENABLE_EXPERIMENTAL

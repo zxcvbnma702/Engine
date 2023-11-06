@@ -28,6 +28,8 @@
 #include "Algernon/Renderer/OrthographicCamera.h"
 //-----------------------------------
 
+#include "Algernon/System/ParticleSystem.h"
+
 //-----------------------
 //#include"Algernon/Core/EntryPoint.h"
 //------------------------

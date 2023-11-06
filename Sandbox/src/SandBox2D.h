@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Algernon.h"
-#include "ParticleSystem.h"
 
 class SandBox2D : public Algernon::Layer
 {

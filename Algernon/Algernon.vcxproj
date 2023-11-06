@@ -172,6 +172,7 @@
     <ClInclude Include="src\Algernon\Renderer\Shader.h" />
     <ClInclude Include="src\Algernon\Renderer\Texture.h" />
     <ClInclude Include="src\Algernon\Renderer\VertexArray.h" />
+    <ClInclude Include="src\Algernon\System\ParticleSystem.h" />
     <ClInclude Include="src\Alpch.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
@@ -617,6 +618,7 @@
     <ClCompile Include="src\Algernon\Renderer\Shader.cpp" />
     <ClCompile Include="src\Algernon\Renderer\Texture.cpp" />
     <ClCompile Include="src\Algernon\Renderer\VertexArray.cpp" />
+    <ClCompile Include="src\Algernon\System\ParticleSystem.cpp" />
     <ClCompile Include="src\Alpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

@@ -1,6 +1,7 @@
 #pragma once
 
-#include <Algernon.h>
+#include "Algernon/Core/Timestep.h"
+#include "Algernon/Renderer/OrthographicCamera.h"
 #include <random>
 
 struct ParticleProps
